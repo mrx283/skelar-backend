@@ -28,7 +28,7 @@ export const generateSKLPDF = async (req, res) => {
 
     const skl = qrData.skl;
 
-    const qrText = `http://192.168.100.9:5173/verifikasi/${skl.id}`;
+    const qrText = `https://skelar-frontend.vercel.app/verifikasi/${skl.id}`;
     const qrBase64 = await QRCode.toDataURL(qrText);
 
     const htmlContent = `
