@@ -30,7 +30,6 @@ app.use("/api/pdf", pdfRoutes);
 app.use(
   cors({
     origin: "https://skelar-frontend.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
