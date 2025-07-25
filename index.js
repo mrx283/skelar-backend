@@ -16,6 +16,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(
+  cors({
+    origin: "https://skelar-frontend.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // routes
@@ -26,14 +34,6 @@ app.use("/api", qrRoutes);
 app.use("/api/download", downloadRoutes);
 app.use("/api/rsa", rsaRoutes);
 app.use("/api/pdf", pdfRoutes);
-
-app.use(
-  cors({
-    origin: "https://skelar-frontend.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
 
 app.get("/", (req, res) => {
   res.send("SKELAR Backend Ready!");
